@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Fallback to localhost if no environment variable index
-const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000').replace(/\/$/, '');
+const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || (window.location.hostname === 'localhost' ? 'http://localhost:8000' : '')).replace(/\/$/, '');
 
 export const api = axios.create({
   baseURL: `${BACKEND_URL}/api`,

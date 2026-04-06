@@ -70,7 +70,11 @@ pool: asyncpg.Pool = None
 async def get_pool() -> asyncpg.Pool:
     global pool
     if pool is None:
-        pool = await asyncpg.create_pool(DATABASE_URL, min_size=2, max_size=10)
+        pool = await asyncpg.create_pool(DATABASE_URL, min_size=1, max_size=5)
+        # Serverless muhitda jadvallarni birinchi marta yaratish (agar yo'q bo'lsa)
+        async with pool.acquire() as conn:
+            await create_tables(conn)
+            await seed_admin(conn)
     return pool
 
 # ─── Helpers ───
@@ -1129,5 +1133,5 @@ async def shutdown():
     if pool:
         await pool.close()
 
-app.include_router(api_router)
 app.add_middleware(CORSMiddleware, allow_credentials=True, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.include_router(api_router)
