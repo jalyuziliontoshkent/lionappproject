@@ -1,0 +1,53 @@
+# Development and testing files
+node_modules/
+.git/
+.gitignore
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test files
+tests/
+__pycache__/
+*.pytest_cache/
+*.pyc
+test_reports/
+test_result.md
+
+# Build and cache
+dist/
+build/
+.next/
+.vite/
+.turbo/
+
+# Documentation and configs
+memory/
+design_guidelines.json
+README.md
+*.md
+
+# Scripts
+scripts/
+start.bat
+backend_test.py
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.eslintcache
+
+# Expo/React Native (not needed for web)
+frontend/
+
+# Vercel specific
+.vercel/

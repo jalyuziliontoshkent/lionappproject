@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "public": false,
+  "buildCommand": "cd website && npm install && npm run build",
   "builds": [
     {
       "src": "website/package.json",
@@ -8,24 +10,30 @@
     },
     {
       "src": "backend/server.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.12",
+        "maxLambdaSize": "250mb"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/server.py"
+      "dest": "backend/server.py",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
     },
     {
       "src": "/assets/(.*)",
-      "dest": "website/assets/$1"
+      "dest": "website/dist/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "website/index.html"
+      "dest": "website/dist/index.html"
     }
   ],
   "env": {
-    "PYTHON_VERSION": "3.9"
-  }
+    "PYTHON_VERSION": "3.12"
+  },
+  "envFile": ["backend/.env"]
 }
