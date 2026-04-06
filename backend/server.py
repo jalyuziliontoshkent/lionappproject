@@ -78,7 +78,7 @@ async def get_pool() -> asyncpg.Pool:
     return pool
 
 # ─── Helpers ───
-def get_jwt_secret(): return os.environ["JWT_SECRET"]
+def get_jwt_secret(): return JWT_SECRET
 def hash_password(pw: str) -> str: return bcrypt.hashpw(pw.encode(), bcrypt.gensalt()).decode()
 def verify_password(plain: str, hashed: str) -> bool: return bcrypt.checkpw(plain.encode(), hashed.encode())
 
