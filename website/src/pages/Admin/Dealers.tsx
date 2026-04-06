@@ -9,10 +9,8 @@ import {
   Trash2,
   X,
   Check,
-  CreditCard,
   AlertCircle,
   Phone,
-  MapPin,
   Mail,
 } from 'lucide-react';
 

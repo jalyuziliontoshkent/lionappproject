@@ -11,7 +11,6 @@ import {
   Check,
   Phone,
   Mail,
-  Shield,
   Briefcase,
 } from 'lucide-react';
 

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../../utils/api';
 import {
-  Package,
   Calendar,
   CheckCircle2,
   Clock,
-  ExternalLink,
   RefreshCw,
   User,
-  ArrowRight,
   ClipboardList,
 } from 'lucide-react';
 

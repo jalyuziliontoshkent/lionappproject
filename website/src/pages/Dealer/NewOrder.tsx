@@ -7,7 +7,6 @@ import {
   Calculator,
   CheckCircle2,
   Image as ImageIcon,
-  ArrowRight,
   RotateCcw,
   Sparkles,
 } from 'lucide-react';
@@ -75,7 +74,6 @@ const NewOrder: React.FC = () => {
   const removeItem = (id: number) => setCart(prev => prev.filter(i => i.id !== id));
 
   const totalAmount = cart.reduce((sum, i) => sum + i.price, 0);
-  const totalArea   = cart.reduce((sum, i) => sum + (i.sqm * i.quantity), 0);
 
   const handleSubmit = async () => {
     if (cart.length === 0) return;

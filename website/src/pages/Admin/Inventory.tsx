@@ -11,7 +11,6 @@ import {
   Check,
   RefreshCw,
   Tag,
-  AlertCircle,
 } from 'lucide-react';
 
 const AdminInventory: React.FC = () => {
@@ -20,7 +19,6 @@ const AdminInventory: React.FC = () => {
   const [search, setSearch]       = useState('');
   const [showModal, setShowModal] = useState(false);
   const [saving, setSaving]       = useState(false);
-  const [deleteId, setDeleteId]   = useState<string | null>(null);
 
   // Form State
   const [formData, setFormData] = useState({
