@@ -17,11 +17,12 @@
       "dest": "backend/server.py"
     },
     {
-      "handle": "filesystem"
+      "src": "/assets/(.*)",
+      "dest": "website/assets/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "website/index.html"
     }
   ],
   "env": {
